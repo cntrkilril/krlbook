@@ -9,6 +9,9 @@ my profile
 <h1>Updated</h1>
 {% endif %}
 <div>My profile: {{ request.user }}</div>
+<div>Number of posts: {{profile.get_posts_no}}</div>
+<div>Number of likes given: {{profile.get_likes_given_no}}</div>
+<div>Number of likes received: {{profile.get_likes_received_no}}</div>
 <form action="" method="POST" class="ui form" enctype="multipart/form-data">
 {% csrf_token %}
 {{ form.as_p }}
