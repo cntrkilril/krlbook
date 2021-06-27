@@ -27,7 +27,7 @@ class ProfileManger(models.Manager):
         return profiles
 
 class Profile(models.Model):
-    first_name = models.CharField(max_length=200, blank=True)
+    first_name = models.CharField(max_length=15, blank=True)
     last_name = models.CharField(max_length=200, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(default='no bio...', max_length=300)

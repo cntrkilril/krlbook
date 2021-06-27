@@ -1,14 +1,11 @@
-$(document).ready(function (){
-    $('#modal-btn').click(function(){
-        $('.ui.modal')
-        .modal('show')
-        ;
-    })
-    $('.ui.dropdown').dropdown()
-})
+"use strict";
 
-
-// $( document ).ready(function() {
+$(document).ready(function () {
+  $('#modal-btn').click(function () {
+    $('.ui.modal').modal('show');
+  });
+  $('.ui.dropdown').dropdown();
+}); // $( document ).ready(function() {
 //     let display = false
 //     $(".comment-box").hide(500);
 //     $("#cmt_btn").click(function ()
