@@ -1,3 +1,9 @@
+$background__color : rgb(238, 238, 238);
+$header__color: rgb(185, 156, 211);
+$header__color__hover: rgb(106, 79, 132);
+$positive__button__color: rgb(138, 138, 240);
+$positive__button__color__hover: rgb(49, 49, 104);
+
 html
 {
     font-size: 62.5%;
@@ -8,6 +14,8 @@ body
     margin: 0;
     padding: 0;
     font-weight: 1rem !important;
+    background-color: $background__color !important;
+    height: 100vh;
 }
 
 h3
@@ -15,21 +23,52 @@ h3
     margin: 0;
 }
 
+button
+{
+    cursor: pointer !important;
+}
+
+// ///////////////////////////////
+// BASE.HTML //
+// ///////////////////////////////
+
+.wrapper-main
+{
+    min-width: 320px;
+    display: grid;
+    justify-items: center;
+}
+
+.main
+{
+    width: 100%;
+    max-width: 2000px;
+    padding-left: 15%;
+    padding-right: 15%;
+    background-color: $background__color;
+    @media (max-width: 500px) {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    padding-bottom: 4rem;
+}
+
 // ///////////////////////////////
 // NAVBAR //
 // ///////////////////////////////
+
 .wrapper-header
 {
     min-width: 320px;
-    background-color: rgb(177, 140, 214);
+    background-color: $header__color;
     display: grid;
     justify-items: center;
 }
 .header
 {
-    background-color: rgb(177, 140, 214);
+    background-color: $header__color;
     width: 100%;
-    max-width: 1700px;
+    max-width: 2000px;
 }
 
 .nav
@@ -74,7 +113,7 @@ h3
         color: white;
         &:hover
         {
-            background-color: rgb(106, 79, 132);
+            background-color: $header__color__hover;
             color: white;
         }
     }
@@ -96,7 +135,7 @@ h3
         justify-content: center !important;
         &:hover
         {
-            background-color: rgb(106, 79, 132) !important;
+            background-color: $header__color__hover !important;
         }
         @media (max-width: 800px)
         {
@@ -113,7 +152,7 @@ h3
         justify-content: center;
         &:hover
         {
-            background-color: rgb(106, 79, 132);
+            background-color: $header__color__hover;
             color: white;
         }
     }
@@ -147,7 +186,7 @@ h3
         color: white !important;
         &:hover
         {
-            background-color: rgb(106, 79, 132) !important;
+            background-color: $header__color__hover !important;
             color: white !important;
         }
     } 
@@ -182,7 +221,7 @@ h3
     padding-right: 2rem;
     &:hover
     {
-        background-color: rgb(106, 79, 132);
+        background-color: $header__color__hover;
         color: white;
     }
     &__text
@@ -216,7 +255,7 @@ h3
 
 .active
 {
-    background-color: rgb(106, 79, 132) !important;
+    background-color: $header__color__hover !important;
     color: white !important;
     font-weight: normal !important;
 }
@@ -225,3 +264,357 @@ h3
 // ///////////////////////////////
 // MAIN.HTML //
 // ///////////////////////////////
+
+.main
+{
+    &__post-form-block
+    {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 1.5rem;
+        width: 100%;
+        min-width: none;
+    }
+    &__post-block
+    {
+        background-color: white;
+        width: 100%;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 1.5rem;
+        width: 100%;
+        min-width: none;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.post-form-block
+{
+    &__form
+    {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        gap: 1rem;
+        @media (max-width: 700px)
+        {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.form-post
+{
+    &__form-body
+    {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__btn
+    {
+        width: 9rem;
+        justify-self: center;
+        height: 3rem;
+        background-color: $positive__button__color;
+        border: 0;
+        border-radius: 0.5rem;
+        color: white;
+        &:focus
+        {
+            outline: none;
+        }
+        &:hover
+        {
+            background-color: $positive__button__color__hover;
+        }
+        @media (max-width: 700px)
+        {
+            justify-self: start;
+        }
+    }
+}
+
+.form-body
+{
+    label
+    {
+        display: none;
+    }
+    &__textarea
+    {
+        background-color: $background__color;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        overflow: auto;
+        resize: vertical;
+        &:focus
+        {
+            outline: none;
+        }
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+}
+
+.info-block
+{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 1rem;
+    &__function-block
+    {
+        justify-self: end;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    @media (max-width: 700px) 
+    {
+        display: flex;
+        flex-direction: column;
+        justify-items: start;
+    }
+}
+
+.author-block
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.author-text-block
+{
+    &__link
+    {
+        &:hover
+        {
+            color: $positive__button__color__hover;
+        }
+    }
+}
+
+.function-block
+{
+    &__link
+    {
+        margin-left: 1rem;
+        &:hover
+        {
+            color: $positive__button__color__hover;
+        }
+        @media (max-width: 700px) 
+        {
+            margin-left: 0;
+            margin-right: 1rem;
+            margin-top: 1rem;
+        }
+    }
+}
+
+.content
+{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    border-bottom: 0.1rem solid rgb(99, 99, 99);
+    padding-bottom: 1rem;
+    &__image-block
+    {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+.image-block
+{
+    &__image
+    {
+        width: 100%;
+        border-radius: 0.5rem;
+    }
+}
+
+.tools-block
+{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    &__form-block
+    {
+        display: flex;
+        flex-direction: row;
+    }
+    &__comment-block
+    {
+        display: flex;
+        flex-direction: row;
+        background-color: $background__color;
+        border: 0.1rem solid black;
+        border-radius: 0.2rem;
+        min-width: 4rem;
+        justify-content: center;
+    }
+}
+
+.comment-block
+{
+    &__icon
+    {
+        
+        margin-top: 0.5rem !important;
+    }
+    &__text
+    {
+        align-self: center;
+    }
+}
+
+.form-block
+{
+    &__btn
+    {
+        background-color: rgb(218, 102, 102);
+        border: 0;
+        border-radius: 0.2rem;
+        padding: 0.5rem;
+        width: 7rem;
+        color: white;
+        height: 2.5rem;
+        margin-right: 1rem;
+        transition: .3s;
+        &:focus
+        {
+            outline: none;
+        }
+        &:hover
+        {
+            background-color: rgb(116, 124, 150);
+        }
+        @media (max-width: 700px) 
+        {
+            width: 6rem;
+        }
+    }
+    &__btn-dis
+    {
+        background-color: rgb(99, 101, 211);
+        border: 0;
+        border-radius: 0.2rem;
+        padding: 0.5rem;
+        width: 7rem;
+        color: white;
+        height: 2.5rem;
+        margin-right: 1rem;
+        transition: .3s;
+        &:focus
+        {
+            outline: none;
+        }
+        &:hover
+        {
+            background-color: rgb(116, 124, 150);
+        }
+        @media (max-width: 700px) 
+        {
+            width: 6rem;
+        }
+    }
+    &__btn-un
+    {
+        background-color: rgb(165, 161, 161);
+        border: 0.1rem solid black;
+        border-radius: 0.2rem;
+        padding: 0.5rem;
+        width: 7rem;
+        color: rgb(0, 0, 0);
+        height: 2.5rem;
+        margin-right: 1rem;
+        transition: .3s;
+        &:focus
+        {
+            outline: none;
+        }
+        &:hover
+        {
+            background-color: rgb(159, 140, 175);
+        }
+        @media (max-width: 700px) 
+        {
+            width: 6rem;
+        }
+    }
+}
+
+.cmt_btn
+{
+    height: 2.5rem;
+    border-radius: 0.2rem;
+    border: 0.1rem solid black;
+    margin-bottom: 1rem;
+    background-color: $background__color;
+    &:focus
+    {
+        outline: none;
+    }
+}
+
+.comment-box
+{
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.block-comment-item
+{
+    width: 100%;
+    border-radius: 0.2rem;
+    background-color: $background__color;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    &__text
+    {
+        margin-top: 1rem;
+        word-wrap: break-word;
+        word-break: break-all;
+        hyphens: auto;
+        width: 100%;
+    }
+    &__author-block
+    {
+        background-color: rgb(150, 146, 146);
+        padding: 0.5rem;
+        border-radius: 0.2rem;
+        color: white;
+    }
+}
+
+.comment-form-block
+{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1rem;
+}
+
+#id_body
+{
+    background-color: $background__color;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    height: 3rem;
+    overflow: auto;
+    resize: vertical;
+    &:focus
+    {
+        outline: none;
+    }
+    margin-bottom: 1rem;
+    width: 100%;
+}
