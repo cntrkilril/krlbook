@@ -727,3 +727,78 @@ button {
 .form-modal-btn {
   width: 100%;
 }
+
+.main__h3-prof-all {
+  margin-top: 1.5rem !important;
+}
+.main__all-prof-block {
+  background-color: white;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.item-block-all-prof {
+  display: grid;
+  grid-template-columns: 1fr 15fr;
+  gap: 1rem;
+  border-bottom: 0.1rem solid #818181;
+  padding: 0.5rem;
+}
+.item-block-all-prof__image {
+  width: 100%;
+}
+@media (max-width: 1300px) {
+  .item-block-all-prof {
+    grid-template-columns: 1fr 10fr;
+  }
+}
+@media (max-width: 930px) {
+  .item-block-all-prof {
+    grid-template-columns: 1fr 7fr;
+  }
+}
+@media (max-width: 500px) {
+  .item-block-all-prof {
+    grid-template-columns: 1fr 3fr;
+  }
+}
+
+.info-block-all-prof__link:hover {
+  color: black !important;
+}
+.info-block-all-prof__btn-wait {
+  width: 13rem;
+  height: 2rem;
+  background-color: #a5a5a5;
+  border: 0;
+  border-radius: 0.2rem;
+  color: white;
+}
+.info-block-all-prof__btn-wait:focus {
+  outline: none;
+}
+
+.form-all-prof__btn-del, .form-all-prof__btn-add {
+  width: 13rem;
+  height: 2rem;
+  background-color: #bb6767;
+  border: 0;
+  border-radius: 0.2rem;
+  color: white;
+  transition: 0.3s;
+}
+.form-all-prof__btn-del:focus, .form-all-prof__btn-add:focus {
+  outline: none;
+}
+.form-all-prof__btn-del:hover, .form-all-prof__btn-add:hover {
+  background-color: #ae5a5a;
+}
+.form-all-prof__btn-add {
+  background-color: #89c589;
+  color: white;
+}
+.form-all-prof__btn-add:hover {
+  background-color: #419141;
+}

@@ -5,6 +5,7 @@ $positive__button__color: rgb(138, 138, 240);
 $positive__button__color__hover: rgb(49, 49, 104);
 $positive__green-btn__back-color: rgb(137, 197, 137);
 $positive__green-btn__color: rgb(137, 197, 137);
+$negative-color: rgb(187, 103, 103);
 
 html
 {
@@ -894,4 +895,104 @@ button
 .form-modal-btn
 {
     width: 100%;
+}
+
+// ///////////////////////////////
+// PROFILES-LIST.HTML //
+// ///////////////////////////////
+
+.main
+{
+    &__h3-prof-all
+    {
+        margin-top: 1.5rem !important;
+    }
+    &__all-prof-block
+    {
+        background-color: white;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-radius: 0.5rem;
+        margin-top: 1.5rem;
+    }
+}
+
+.item-block-all-prof
+{
+    
+    display: grid;
+    grid-template-columns: 1fr 15fr;
+    gap: 1rem;
+    border-bottom: 0.1rem solid rgb(129, 129, 129);
+    padding: 0.5rem;
+    &__image
+    {
+        width: 100%;
+    }
+    @media (max-width: 1300px) {
+        grid-template-columns: 1fr 10fr;
+    }
+    @media (max-width: 930px) {
+        grid-template-columns: 1fr 7fr;
+    }
+    @media (max-width: 500px) {
+        grid-template-columns: 1fr 3fr;
+    }
+}
+
+.info-block-all-prof
+{
+    
+    &__link
+    {
+        &:hover
+        {
+            color: black !important;
+        }
+            
+    }
+    &__btn-wait
+    {
+        width: 13rem;
+        height: 2rem;
+        background-color: rgb(165, 165, 165);
+        border: 0;
+        border-radius: 0.2rem;
+        color: white;
+        &:focus
+        {
+            outline: none;
+        }
+    }
+}
+
+.form-all-prof
+{
+    &__btn-del, &__btn-add
+    {
+        width: 13rem;
+        height: 2rem;
+        background-color: $negative-color;
+        border: 0;
+        border-radius: 0.2rem;
+        color: white;
+        transition: .3s;
+        &:focus
+        {
+            outline: none;
+        }
+        &:hover
+        {
+            background-color: rgb(174, 90, 90);
+        }
+    }
+    &__btn-add
+    {
+        background-color: $positive__green-btn__back-color;
+        color: white;
+        &:hover
+        {
+            background-color: rgb(65, 145, 65);
+        }
+    }
 }
