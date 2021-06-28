@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
 
 {% block title %}
-update post
+Редактирование поста
 {% endblock title %}
 
 {% block content %}
-<div class="ui segment">
-    <h3>Update post</h3>
-    <form action="" method="POST" class="ui form" enctype="multipart/form-data">
-
+<div class="main__post-form-block post-form-block">
+    <h3>Редактирование поста</h3>
+    <form action="" method="POST" class="post-form-block__form form-post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{form}}
-        <button type="submit" class="ui button primary mt-5">Update</button>
-
+        <div class="form-post__form-body form-body">
+            {{ form }}
+        </div>
+        <button type="submit" class="form-post__btn" name="submit_p_form">Редактировать</button>
     </form>
 </div>
-    {% endblock content %}
+
+{% endblock content %}

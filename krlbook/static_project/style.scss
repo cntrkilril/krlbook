@@ -1079,3 +1079,17 @@ button
         grid-template-columns: 1fr;
     }
 }
+
+// ///////////////////////////////
+// DELETE.HTML //
+// ///////////////////////////////
+
+.form-del
+{
+    display: flex;
+    flex-direction: column;
+    &__btn
+    {
+        align-self: flex-end;
+    }
+}

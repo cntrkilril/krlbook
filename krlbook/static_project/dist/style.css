@@ -869,3 +869,11 @@ button {
     grid-template-columns: 1fr;
   }
 }
+
+.form-del {
+  display: flex;
+  flex-direction: column;
+}
+.form-del__btn {
+  align-self: flex-end;
+}

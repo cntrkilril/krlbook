@@ -1,31 +1,20 @@
 {% extends 'base.html' %}
 
 {% block title %}
-delete post
+Удаление поста
 {% endblock title %}
 
 {% block content %}
 
-{% if messages %}
-    {% for message in messages %}
-        {% if 'warning' in message.tags %}
-            <div class="ui negative message">
-                <div class="header">
-                    {{message}}
-                </div>
-            </div>
-        {% endif %}
-    {% endfor %}
-{% endif %}
-
 {% if not messages %}
-    <div class="ui segment">
-        <h3>Delete post?</h3>
-        <form action="" method="POST">
+<div class="main__post-form-block post-form-block">
+        <h3>Удаление поста</h3>
+        <form class="post-form-block__form-del form-del" action="" method="POST">
             {% csrf_token %}
             <p>Вы хотите удалить пост?</p>
-            <button type="submit">Submit</button>
+            <button type="submit" class="form-del__btn form-all-prof__btn-del">Удалить</button>
         </form>
-    </div>
+</div>
 {% endif %}
+
 {% endblock content %}
