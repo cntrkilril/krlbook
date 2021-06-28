@@ -1,6 +1,7 @@
 $(document).ready(function (){
+    $('.modal-profile').modal('hide')
     $('#modal-btn').click(function(){
-        $('.ui.modal')
+        $('.modal-profile')
         .modal('show')
         ;
     })

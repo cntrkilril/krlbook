@@ -1,8 +1,9 @@
 "use strict";
 
 $(document).ready(function () {
+  $('.modal-profile').modal('hide');
   $('#modal-btn').click(function () {
-    $('.ui.modal').modal('show');
+    $('.modal-profile').modal('show');
   });
   $('.ui.dropdown').dropdown();
   var display = false;

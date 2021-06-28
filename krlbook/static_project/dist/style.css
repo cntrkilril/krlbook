@@ -8,6 +8,7 @@ body {
   font-weight: 1rem !important;
   background-color: #eeeeee !important;
   height: 100vh;
+  min-width: 320px;
 }
 
 h3 {
@@ -243,6 +244,15 @@ button {
   .post-form-block__form {
     grid-template-columns: 1fr;
   }
+}
+.post-form-block__message {
+  padding: 1rem;
+  width: 100%;
+  background-color: #89c589;
+  color: white;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #15a015;
+  margin-bottom: 1rem;
 }
 
 .form-post__form-body {
@@ -497,4 +507,223 @@ button {
 }
 #id_body:focus {
   outline: none;
+}
+
+.profile-block {
+  background-color: white;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+  width: 100%;
+  min-width: none;
+}
+.profile-block__message {
+  padding: 1rem;
+  width: 100%;
+  background-color: #89c589;
+  color: white;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #15a015;
+  margin-bottom: 1rem;
+}
+.profile-block__block-info {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 1rem;
+}
+@media (max-width: 800px) {
+  .profile-block__block-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+.img-btn-block {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.img-btn-block__image {
+  width: 100%;
+}
+.img-btn-block__btn {
+  justify-self: center;
+  height: 3rem;
+  background-color: #8a8af0;
+  border: 0;
+  border-radius: 0.5rem;
+  color: white;
+}
+.img-btn-block__btn:focus {
+  outline: none;
+}
+.img-btn-block__btn:hover {
+  background-color: #313168;
+}
+@media (max-width: 700px) {
+  .img-btn-block__btn {
+    justify-self: start;
+  }
+}
+
+.table-block {
+  background-color: #eeeeee;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.table-block__table-profile {
+  border-collapse: collapse;
+  width: 100%;
+}
+.table-block__text {
+  word-wrap: break-word;
+}
+.table-block__text-h {
+  margin: 0;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.tr-profile__td, .tr-profile__td-h, .tr-profile__td-sm {
+  padding: 0.5rem;
+  border: 0.1rem solid #a3a3a3;
+  border-left: 0;
+  border-right: 0;
+  word-wrap: break-all;
+}
+@media (max-width: 650px) {
+  .tr-profile__td {
+    display: none;
+  }
+}
+.tr-profile__td-h {
+  font-weight: bold;
+}
+@media (max-width: 650px) {
+  .tr-profile__td-h {
+    border: 0;
+  }
+}
+.tr-profile__td-sm {
+  display: none;
+}
+@media (max-width: 650px) {
+  .tr-profile__td-sm {
+    display: block;
+    border: 0;
+    border-bottom: 0.1rem solid #a3a3a3;
+  }
+}
+
+.modal-profile {
+  background-color: white !important;
+  width: 70%;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  margin-left: 15%;
+  padding: 1rem;
+  color: black !important;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  height: 100rem;
+}
+.modal-profile__header-block {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+@media (max-width: 480px) {
+  .modal-profile {
+    margin-left: 4%;
+    width: 92%;
+    padding: 0.3rem;
+  }
+}
+
+.header-block__heading {
+  justify-self: start;
+}
+.header-block__icon {
+  justify-self: end;
+  cursor: pointer;
+}
+.header-block__text {
+  text-align: start;
+}
+
+.modal__icon {
+  color: black;
+}
+
+.modals {
+  background-color: rgba(0, 0, 0, 0.28);
+}
+
+.image-block-profile {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  background-color: #eeeeee;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.image-block-profile__image {
+  width: 100%;
+  max-width: 40rem;
+}
+.image-block-profile__block-form {
+  background-color: white !important;
+  margin-bottom: 1rem;
+}
+@media (max-width: 800px) {
+  .image-block-profile {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .image-block-profile {
+    padding: 0.3rem;
+  }
+}
+
+.form-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.form-modal p {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#id_bio {
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow: auto;
+  resize: vertical;
+  max-height: 30rem;
+  min-height: 3rem;
+  min-width: 3rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+#id_bio:focus {
+  outline: none;
+}
+
+#id_first_name, #id_last_name {
+  border: 0.1rem solid black;
+  border-radius: 0.2rem;
+  padding: 0.2rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  min-width: 3rem;
+}
+#id_first_name:focus, #id_last_name:focus {
+  outline: none;
+}
+
+.form-modal-btn {
+  width: 100%;
 }
