@@ -802,3 +802,70 @@ button {
 .form-all-prof__btn-add:hover {
   background-color: #419141;
 }
+
+.detail-block {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+.detail-block__img-stat-block {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.detail-block__list-posts-block {
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 800px) {
+  .detail-block {
+    grid-template-columns: 1fr;
+  }
+}
+
+.post-text {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  word-wrap: breal-word;
+  word-break: break-all;
+  margin-bottom: 1rem;
+}
+
+.img-stat-block__image {
+  width: 100%;
+  max-width: 20rem;
+}
+.img-stat-block__block-stat {
+  align-self: flex-start;
+  width: 100%;
+}
+
+.item-block {
+  display: grid;
+  grid-template-columns: 7fr 1fr;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+.item-block__num {
+  padding: 0.3rem;
+  background-color: #6a4f84;
+  color: white;
+  text-align: center;
+  border-radius: 0.2rem;
+}
+
+.form-block-prof {
+  display: grid;
+  grid-template-columns: repeat(2, 13rem);
+  gap: 1rem;
+}
+@media (max-width: 700px) {
+  .form-block-prof {
+    grid-template-columns: 1fr;
+  }
+}

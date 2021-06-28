@@ -5,73 +5,90 @@ profile detail
 {% endblock title %}
 
 {% block content %}
-<div class="ui grid">
-    <br>
-    <div class="row">
-        <div class="four wide column">
-            <img class="ui medium rounded image" src={{object.avatar.url}}>
-            <h1>{{object.user}}</h1>
-            <div class="ui vertical fluid menu">
+<div class="main__detail-block detail-block">
 
-                <div class="item">
-                    Posts
-                    <div class="ui label">
-                        {{object.get_posts_no}}
-                    </div>
-                </div>
-                <div class="item">
-                    Likes given
-                    <div class="ui label">
-                        {{object.get_likes_given_no}}
-                    </div>
-                </div>
-                <div class="item">
-                    Likes received
-                    <div class="ui label">
-                        {{object.get_likes_received_no}}
-                    </div>
-                </div>
-                <div class="item">
-                    Friends
-                    <div class="ui label">
-                        {{object.get_friends_no}}
-                    </div>
-                </div>
+    <div class="detail-block__img-stat-block img-stat-block">
 
+        <img class="img-stat-block__image" src={{object.avatar.url}}>
+
+        <h3 class="img-stat-block__heading">{{object.user}}</h3>
+
+        <div class="img-stat-block__block-stat block-stat">
+
+            <div class="block-stat__item-block item-block">
+                Посты
+                <div class="item-block__num">
+                    {{object.get_posts_no}}
+                </div>
+            </div>
+            <div class="block-stat__item-block item-block">
+                Полученные лайки
+                <div class="item-block__num">
+                    {{object.get_likes_given_no}}
+                </div>
+            </div>
+            <div class="block-stat__item-block item-block">
+                Поставленные лайки
+                <div class="item-block__num">
+                    {{object.get_likes_received_no}}
+                </div>
+            </div>
+            <div class="block-stat__item-block item-block">
+                Полученные дизлайки
+                <div class="item-block__num">
+                    {{object.get_dislikes_given_no}}
+                </div>
+            </div>
+            <div class="block-stat__item-block item-block">
+                Поставленные дизлайки
+                <div class="item-block__num">
+                    {{object.get_dislikes_received_no}}
+                </div>
+            </div>
+            <div class="block-stat__item-block item-block">
+                Друзья
+                <div class="item-block__num">
+                    {{object.get_friends_no}}
+                </div>
             </div>
 
-            {% if object.user not in rel_receiver and object.user not in rel_sender %}
-                <form action="{% url 'profiles:send-invite' %}" method="POST">
-                    {% csrf_token %}
-                    <input type="hidden" name="profile_pk" value={{object.pk}}>
-                    <button type="submit" class="ui positive basic button"><i class="plus square icon"></i>Add to friends</button>
-                </form>
-            {% endif %}
-
-            {% if object.user in rel_receiver and request.user not in object.friends.all %}
-                <button class="ui disabled button"><i class="user icon"></i>Waiting for approval</button>
-            {% endif %}
-
-            {% if request.user in object.friends.all %}
-                <form action="{% url 'profiles:remove-friend' %}" method="POST">
-                    {% csrf_token %}
-                    <input type="hidden" name="profile_pk" value={{object.pk}}>
-                    <button type="submit" class="ui negative basic button"><i class="minus square icon"></i>Remove from friends</button>
-                </form>
-            {% endif %}
-
         </div>
-        <div class="twelve wide column">
-            {% if len_posts %}
-                {% for post in posts %}
-                    <div class="segment ui fluid">
-                        {{post.content}}
-                    </div>
-                {% endfor %}
-            {% else %}
-                <h1>No posts of this user ...</h1>
-            {% endif %}
-        </div>
+
+        {% if obj.user not in rel_receiver and obj.user not in rel_sender %}
+            <form class="info-block-all-prof__form-all-prof form-all-prof" action="{% url 'profiles:send-invite' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="profile_pk" value={{obj.pk}}>
+                <button type="submit" class="form-all-prof__btn-add"><i class="plus square icon"></i>Добавить</button>
+            </form>
+        {% endif %}
+
+        {% if obj.user in rel_receiver and request.user not in obj.friends.all %}
+            <button disabled class="info-block-all-prof__btn-wait"><i class="user icon"></i>Ожидание ответа</button>
+        {% endif %}
+
+        {% if request.user in obj.friends.all %}
+            <form class="info-block-all-prof__form-all-prof form-all-prof" action="{% url 'profiles:remove-friend' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="profile_pk" value={{obj.pk}}>
+                <button type="submit" class="form-all-prof__btn-del"><i class="minus square icon"></i>Удалить</button>
+            </form>
+        {% endif %}
+
     </div>
+
+    <div class="detail-block__list-posts-block list-posts-block">
+        {% if len_posts %}
+            <h3 class="main__h3-prof-all">Посты:</h3>
+            {% for post in posts %}
+                <div class="list-posts-block__post-text post-text">
+                    <p class="post-text__text">{{post.content}}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h3 class="main__h3-prof-all">Нет постов ...</h3>
+        {% endif %}
+    </div>
+
 </div>
+
 {% endblock content %}

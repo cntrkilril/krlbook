@@ -24,19 +24,19 @@
                                 <form class="info-block-all-prof__form-all-prof form-all-prof" action="{% url 'profiles:send-invite' %}" method="POST">
                                     {% csrf_token %}
                                     <input type="hidden" name="profile_pk" value={{obj.pk}}>
-                                    <button type="submit" class="form-all-prof__btn-add"><i class="plus square icon"></i>Add to friends</button>
+                                    <button type="submit" class="form-all-prof__btn-add"><i class="plus square icon"></i>Добавить</button>
                                 </form>
                             {% endif %}
 
                             {% if obj.user in rel_receiver and request.user not in obj.friends.all %}
-                                <button disabled class="info-block-all-prof__btn-wait"><i class="user icon"></i>Waiting for approval</button>
+                                <button disabled class="info-block-all-prof__btn-wait"><i class="user icon"></i>Ожидание ответа</button>
                             {% endif %}
 
                             {% if request.user in obj.friends.all %}
                                 <form class="info-block-all-prof__form-all-prof form-all-prof" action="{% url 'profiles:remove-friend' %}" method="POST">
                                     {% csrf_token %}
                                     <input type="hidden" name="profile_pk" value={{obj.pk}}>
-                                    <button type="submit" class="form-all-prof__btn-del"><i class="minus square icon"></i>Remove from friends</button>
+                                    <button type="submit" class="form-all-prof__btn-del"><i class="minus square icon"></i>Удалить</button>
                                 </form>
                             {% endif %}
                         </div>
