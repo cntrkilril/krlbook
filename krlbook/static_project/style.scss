@@ -5,7 +5,9 @@ $positive__button__color: rgb(138, 138, 240);
 $positive__button__color__hover: rgb(49, 49, 104);
 $positive__green-btn__back-color: rgb(137, 197, 137);
 $positive__green-btn__color: rgb(137, 197, 137);
-$negative-color: rgb(187, 103, 103);
+$negative-color: rgb(174, 78, 78);
+$error__message-back: rgb(230, 190, 190);
+$error__message-color: rgb(119, 15, 15);
 
 html
 {
@@ -592,6 +594,7 @@ button
     background-color: $background__color;
     padding: 1rem;
     margin-bottom: 1rem;
+    word-break: break-all;
     &__text
     {
         margin-top: 1rem;
@@ -1092,4 +1095,136 @@ button
     {
         align-self: flex-end;
     }
+}
+
+// ///////////////////////////////
+// DELETE.HTML //
+// ///////////////////////////////
+
+.form-logout
+{
+    display: flex;
+    flex-direction: column;
+    &__btn
+    {
+        align-self: flex-end;
+    }
+}
+
+// ///////////////////////////////
+// LOGIN.HTML //
+// ///////////////////////////////
+
+.login-block
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 0.5rem;
+    margin-top: 1.5rem;
+    &__h3
+    {
+        margin-top: 1rem !important;
+    }
+    &__form-block-sign
+    {
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        width: 70%;
+    }
+}
+
+.form-block-sign
+{
+    p
+    {
+        width: 100%;
+        margin: 0;
+        max-width: 30rem;
+        label
+        {
+            display:none;
+        }
+        input
+        {
+            background-color: $background__color;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            &:focus
+            {
+                outline: none;
+            }
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+    }
+}
+
+#id_remember
+{
+    display: none;
+}
+
+.btn-block
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1rem;
+    max-width: 30rem;
+    margin-bottom: 1rem;
+    &__btn-pos, &__btn-neg
+    {
+        padding: 0.5rem;
+        background-color: $positive__green-btn__back-color;
+        border: 0;
+        border-radius: 0.2rem;
+        color: white;
+        width: 100%;
+        justify-self: center;
+        max-width: 10rem;
+        transition: .3s;
+        &:focus
+        {
+            outline: none;
+        }
+        &:hover
+        {
+            background-color: rgb(101, 213, 101);
+        }
+    }
+    &__btn-neg
+    {
+        background-color: $negative-color;
+        &:hover
+        {
+            background-color: rgb(221, 98, 98);
+        }
+    }
+    &__link
+    {
+        width: 100%;
+        justify-self: center;
+        max-width: 10rem;
+        text-align: center;
+        &:hover
+        {
+            color: white;
+        }
+    }
+}
+
+.errorlist
+{
+    list-style-type: none !important;
+    padding: 0;
+    justify-self: start !important;
+    background-color: $error__message-back;
+    color: $error__message-color;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    border: 0.1rem solid $error__message-color;
 }

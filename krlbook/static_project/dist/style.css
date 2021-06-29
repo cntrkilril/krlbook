@@ -473,6 +473,7 @@ button {
   background-color: #eeeeee;
   padding: 1rem;
   margin-bottom: 1rem;
+  word-break: break-all;
 }
 .block-comment-item__text {
   margin-top: 1rem;
@@ -783,7 +784,7 @@ button {
 .form-all-prof__btn-del, .form-all-prof__btn-add {
   width: 13rem;
   height: 2rem;
-  background-color: #bb6767;
+  background-color: #ae4e4e;
   border: 0;
   border-radius: 0.2rem;
   color: white;
@@ -876,4 +877,106 @@ button {
 }
 .form-del__btn {
   align-self: flex-end;
+}
+
+.form-logout {
+  display: flex;
+  flex-direction: column;
+}
+.form-logout__btn {
+  align-self: flex-end;
+}
+
+.login-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+}
+.login-block__h3 {
+  margin-top: 1rem !important;
+}
+.login-block__form-block-sign {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+}
+
+.form-block-sign p {
+  width: 100%;
+  margin: 0;
+  max-width: 30rem;
+}
+.form-block-sign p label {
+  display: none;
+}
+.form-block-sign p input {
+  background-color: #eeeeee;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.form-block-sign p input:focus {
+  outline: none;
+}
+
+#id_remember {
+  display: none;
+}
+
+.btn-block {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 30rem;
+  margin-bottom: 1rem;
+}
+.btn-block__btn-pos, .btn-block__btn-neg {
+  padding: 0.5rem;
+  background-color: #89c589;
+  border: 0;
+  border-radius: 0.2rem;
+  color: white;
+  width: 100%;
+  justify-self: center;
+  max-width: 10rem;
+  transition: 0.3s;
+}
+.btn-block__btn-pos:focus, .btn-block__btn-neg:focus {
+  outline: none;
+}
+.btn-block__btn-pos:hover, .btn-block__btn-neg:hover {
+  background-color: #65d565;
+}
+.btn-block__btn-neg {
+  background-color: #ae4e4e;
+}
+.btn-block__btn-neg:hover {
+  background-color: #dd6262;
+}
+.btn-block__link {
+  width: 100%;
+  justify-self: center;
+  max-width: 10rem;
+  text-align: center;
+}
+.btn-block__link:hover {
+  color: white;
+}
+
+.errorlist {
+  list-style-type: none !important;
+  padding: 0;
+  justify-self: start !important;
+  background-color: #e6bebe;
+  color: #770f0f;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #770f0f;
 }
