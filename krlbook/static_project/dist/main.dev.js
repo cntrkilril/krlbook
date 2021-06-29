@@ -1,9 +1,12 @@
 "use strict";
 
 $(document).ready(function () {
-  $('.modal-profile').modal('hide');
+  $('.modal').modal('hide');
   $('#modal-btn').click(function () {
-    $('.modal-profile').modal('show');
+    $('.modal').modal('show');
+  });
+  $('.close').click(function () {
+    $('.modal').modal('hide');
   });
   $('.ui.dropdown').dropdown();
   var display = false;

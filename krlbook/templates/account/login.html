@@ -16,13 +16,14 @@
     {% csrf_token %}
     {{ form.as_p }}
     {% if redirect_field_value %}
-    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
     <div class="form-block-sign__btn-block btn-block">
+      
       <button class="btn-block__btn-pos" type="submit">Войти</button>
 
       <a class="btn-block__link btn-block__btn-neg" href="{{ signup_url }}">Регистрация</a>
-      
+
     </div>
 
   </form>
