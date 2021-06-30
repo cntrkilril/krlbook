@@ -1,24 +1,25 @@
 {% extends "base.html" %}
 
-{% load i18n %}
-
-{% block head_title %}{% trans "Signup" %}{% endblock %}
+{% block title %}Регистрация{% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
+<div class="main__login-block login-block">
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+  <h3 class="login-block__h3">Регистрация krlbook</h3>
+  
+  <p class="login-block__text">Уже есть аккаунт? Тогда пожалуйста <a href="{{ login_url }}">войдите</a>.</p>
 
-<div class="ui grid">
-  <div class="six wide column">
-    <form class="signup" id="signup ui form" method="post" action="{% url 'account_signup' %}">
-      {% csrf_token %}
-      {{ form.as_p }}
-      {% if redirect_field_value %}
+  <form class="login-block__form-block-sign form-block-sign" method="post" action="{% url 'account_signup' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    {% if redirect_field_value %}
       <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-      {% endif %}
-      <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-    </form>
-  </div>
+    {% endif %}
+
+    <button class="btn-block__btn-pos btn-reg" type="submit">Зарегистрироваться</button>
+
+  </form>
+
 </div>
 {% endblock %}

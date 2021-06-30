@@ -1,13 +1,25 @@
 {% extends 'base.html' %}
 
 {% block title %}
-home
+Главная
 {% endblock title %}
 
 {% block content %}
-{{hello}}
-<br>
-{{user}}
+
+    <div class="main__home-block home-block">
+
+        <h3 class="home-block__h3">Добро пожаловать!</h3>
+
+        <p class="home-block__text">Социальная сеть <b>krlbook</b> разработана студентом Московского Политехнического университета!</p>
+
+        <p class="home-block__text">Здесь Вы можете общаться сразу же со всеми пользователями, опубликовывая посты и отправляя комментарии к постам!</p>
+
+        <p class="home-block__text">Также Вы можете добавлять пользователей в друзья!</p>
+
+        <img class="home-block__image" src="/media/mpu-logo.png" alt="">
+
+    </div>
+
 {% endblock content %}
 
 {% block scripts %}

@@ -1,46 +1,46 @@
 {% extends 'base.html' %}
 
 {% block title %}
-my invites
+Заявки
 {% endblock title %}
 
 {% block content %}
 
-    {% if is_empty %}
-        <h1>No invatations here...</h1>
-    {% endif %}
+{% if is_empty %}
+        <h3 class="main__h3-prof-all">Нет других профилей</h3>
+    {% else %}
 
+        <div class="main__all-prof-block all-prof-block">
+            {% for obj in qs %}
+                    <div class="all-prof-block__item-block-all-prof item-block-all-prof">
+                    
+                        <img class="item-block-all-prof__image" src={{obj.avatar.url}}>
+                        
+                        <div class="item-block-all-prof__info-block-all-prof info-block-all-prof">
+                            <a class="info-block-all-prof__link" href={{obj.get_absolute_url}}>{{obj.user}}</a>
+                            <p class="info-block-all-prof__text">{{obj.bio}}</p>
 
-        {% for obj in qs %}
-            <div class="ui segment">
-                <div class="ui grid">
-                    <div class="row">
+                            <div class="info-block-all-prof__form-block form-block-prof">
 
-                        <div class="three wide column">
-                            <img class="ui small circular image" src={{obj.avatar.url}}>
-                        </div>
-                        <div class="thirteen wide column">
-                            <h3>{{obj.user}}</h3>
-                            <p>{{obj.bio}}</p>
-                            <a href="">
-                                <button class="ui primary button w-big mb-5">See profile</button>
-                            </a>
-                            <form action="{% url 'profiles:accept-invite' %}" method="POST">
-                                {% csrf_token %}
-                                <input type="hidden" name="profile_pk" value={{obj.pk}}>
-                                <button type="submit" class="ui positive basic button w-big mb-5"><i class="check icon"></i>Accept invite</button>
-                            </form>
-                            <form action="{% url 'profiles:reject-invite' %}" method="POST">
-                                {% csrf_token %}
-                                <input type="hidden" name="profile_pk" value={{obj.pk}}>
-                                <button type="submit" class="ui negative basic button w-big mb-5"><i class="close icon"></i>Reject invite</button>
-                            </form>
+                                <form action="{% url 'profiles:accept-invite' %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="profile_pk" value={{obj.pk}}>
+                                    <button type="submit" class="form-all-prof__btn-add"><i class="check icon"></i>Принять</button>
+                                </form>
+                                <form action="{% url 'profiles:reject-invite' %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="profile_pk" value={{obj.pk}}>
+                                    <button type="submit" class="form-all-prof__btn-del"><i class="close icon"></i>Отказать</button>
+                                </form>
+                            
+                            </div>
+
                         </div>
 
                     </div>
-                </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
 
+    {% endif %}
 
 {% endblock content %}

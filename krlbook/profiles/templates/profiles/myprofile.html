@@ -1,107 +1,176 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    my profile
+    Мой профиль
 {% endblock title %}
 
 {% block content %}
 
-<!--modal-->
-<div class="ui modal">
-    <i class="close icon"></i>
-    <div class="header">
-        Update your profile
+<!-- MODAL -->
+<div class="ui modal main__modal-profile modal-profile">
+    <div class="modal-profile__header-block header-block">
+        <h4 class="header-block__heading">
+            Редактировать профиль
+        </h4>
+        <i class="header-block__icon close icon"></i>
+        <p class="header-block__text">Актуализируйте информацию о профиле</p>
     </div>
-    <div class="image content">
-        <div class="ui medium image">
-            <img src="{{profile.avatar.url}}">
+
+    <div class="modal-profile__image-block-profile image-block-profile">
+        <img class="image-block-profile__image" src="{{profile.avatar.url}}">
+        <div class="image-block-profile__form-modal-block form-modal-block">
+            <form action="" method="POST" class="form-modal-block__form-modal form-modal" enctype='multipart/form-data'>
+            {% csrf_token %}
+            {{form.as_p}}
+                <button type='submit' class="form-post__btn form-modal-btn">
+                    Редактировать
+                    <i class="checkmark icon"></i>
+                </button>
+            </form>
         </div>
-        <div class="description">
-            <div class="ui header">Provide some additional info about you</div>
-                <form action="" method="POST" class="ui form" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <div class="actions">
-                        <button type="submit" class="ui positive right labeled icon button">
-                            Update
-                            <i class="checkmark icon"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
+    </div>
 </div>
 
-<div class="ui segment">
-{% if confirm %}
-    <div class="ui green message">Your profile has been updated</div>
-{% endif %}
-    <h3>my profile: {{request.user}}</h3>
-    <div class="ui grid">
-        <div class="row">
-            <div class="six wide column">
-                <img class="ui medium rounded image" src="{{profile.avatar.url}}">
-                <div class="row">
-                    <button class="ui secondary button" id="modal-btn">Update your profile</button>
-                </div>
-            </div>
-            <div class="ten wide column">
-                <table class="ui table">
-                    <tbody>
-                        <tr>
-                            <td>username</td>
-                            <td>{{profile.user}}</td>
-                        </tr>
-                        <tr>
-                            <td>first name</td>
-                            <td>{{profile.first_name}}</td>
-                        </tr>
-                        <tr>
-                            <td>last name</td>
-                            <td>{{profile.last_name}}</td>
-                        </tr>
-                        <tr>
-                            <td>bio</td>
-                            <td>{{profile.bio}}</td>
-                        </tr>
-                        <tr>
-                            <td>number of friends</td>
-                            <td>{{profile.get_friends_no}}</td>
-                        </tr>
-                        <tr>
-                            <td>list of friends</td>
-                            <td>
-                                <ul>
-                                    {% for friend in profile.get_friends %}
-                                    <li>{{friend}}</li>
-                                    {% endfor %}
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>number of posts</td>
-                            <td>{{profile.get_posts_no}}</td>
-                        </tr>
-                        <tr>
-                            <td>number of likes given</td>
-                            <td>{{profile.get_likes_given_no}}</td>
-                        </tr>
-                        <tr>
-                            <td>number of likes received</td>
-                            <td>{{profile.get_likes_received_no}}</td>
-                        </tr>
-                        <tr>
-                            <td>number of dislikes given</td>
-                            <td>{{profile.get_dislikes_given_no}}</td>
-                        </tr>
-                        <tr>
-                            <td>number of dislikes received</td>
-                            <td>{{profile.get_dislikes_received_no}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<!--modal-->
+
+<!-- <div class="main__modal-profile modal-profile">
+    <div class="modal-profile__header-block header-block">
+        <h4 class="header-block__heading">
+            Редактировать профиль
+        </h4>
+        <i class="header-block__icon close icon"></i>
+        <p class="header-block__text">Актуализируйте информацию о профиле</p>
+    </div>
+
+    <div class="modal-profile__image-block-profile image-block-profile">
+        <img class="image-block-profile__image" src="{{profile.avatar.url}}">
+        <div class="image-block-profile__form-modal-block form-modal-block">
+            <form action="" method="POST" class="form-modal-block__form-modal form-modal" enctype='multipart/form-data'>
+            {% csrf_token %}
+            {{form.as_p}}
+                <button type='submit' class="form-post__btn form-modal-btn">
+                    Редактировать
+                    <i class="checkmark icon"></i>
+                </button>
+            </form>
         </div>
     </div>
+</div> -->
+
+<div class="main__profile-block profile-block">
+
+{% if confirm %}
+    <div class='profile-block__message'>Ваш профиль был редактирован</div>
+{% endif %}
+
+    <div class="profile-block__block-info profile-block-info">
+
+        <div class="profile-block-info__img-btn-block img-btn-block">
+
+            <img class="img-btn-block__image" src="{{profile.avatar.url}}">
+            <button class="img-btn-block__btn" id="modal-btn">Редактировать профиль</button>
+
+        </div>
+
+        <div class="profile-block-info__table-block table-block">
+            
+            <h3 class='table-block__h3'>Мой профиль: {{request.user}}</h3>
+
+            <table class="table-block__table-profile table-profile">
+
+                <tbody>
+                    <tr class="table-profile__tr">
+                        <td class="tr-profile__td-h">Никнейм: </td>
+                        <td class="tr-profile__td">{{profile.user}}</td>
+                    </tr>
+                    <tr class="table-profile__tr-sm">
+                        <td class="tr-profile__td-sm">{{profile.user}}</td>
+                    </tr>
+                    <tr class="table-profile__tr">
+                        <td class="tr-profile__td-h">Имя:</td>
+                        <td class="tr-profile__td">{{profile.first_name}}</td>
+                    </tr>
+                    <tr class="table-profile__tr-sm">
+                        <td class="tr-profile__td-sm">{{profile.first_name}}</td>
+                    </tr>
+                    <tr class="table-profile__tr tr-profile">
+                        <td class="tr-profile__td-h">Фамилия:</td>
+                        <td class="tr-profile__td">{{profile.last_name}}</td>
+                    </tr>
+                    <tr class="table-profile__tr-sm">
+                        <td class="tr-profile__td-sm">{{profile.last_name}}</td>
+                    </tr>
+                    <tr class="table-profile__tr">
+                        <td class="tr-profile__td-h">Друзья:</td>
+                        <td class="tr-profile__td">{{profile.get_friends_no}}</td>
+                    </tr>
+                    <tr class="table-profile__tr-sm">
+                        <td class="tr-profile__td-sm">{{profile.get_friends_no}}</td>
+                    </tr>
+                    <tr class="table-profile__tr">
+                        <td class="tr-profile__td-h">Список друзей:</td>
+                        <td class="tr-profile__td">
+                            <ul>
+                                {% for friend in profile.get_friends %}
+                                <li>{{friend}}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="table-profile__tr-sm">
+                        <td class="tr-profile__td-sm">
+                            <ul>
+                                {% for friend in profile.get_friends %}
+                                <li>{{friend}}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="table-profile__tr">
+                        <td class="tr-profile__td-h">Посты:</td>
+                        <td class="tr-profile__td">{{profile.get_posts_no}}</td>
+                    </tr>
+                    <tr class="table-profile__tr-sm">
+                        <td class="tr-profile__td-sm">{{profile.get_posts_no}}</td>
+                    </tr>
+                    <tr class="table-profile__tr">
+                        <td class="tr-profile__td-h">Полученные лайки:</td>
+                        <td  class="tr-profile__td">{{profile.get_likes_given_no}}</td>
+                    </tr>
+                    <tr class="table-profile__tr-sm">
+                        <td class="tr-profile__td-sm">{{profile.get_likes_given_no}}</td>
+                    </tr>
+                    <tr class="table-profile__tr">
+                        <td class="tr-profile__td-h">Поставленные лайки:</td>
+                        <td class="tr-profile__td">{{profile.get_likes_received_no}}</td>
+                    </tr>
+                    <tr class="table-profile__tr-sm">
+                        <td class="tr-profile__td-sm">{{profile.get_likes_received_no}}</td>
+                    </tr>
+                    <tr class="table-profile__tr">
+                        <td class="tr-profile__td-h">Полученные дизлайки:</td>
+                        <td class="tr-profile__td">{{profile.get_dislikes_given_no}}</td>
+                    </tr>
+                    <tr class="table-profile__tr-sm">
+                        <td class="tr-profile__td-sm">{{profile.get_dislikes_given_no}}</td>
+                    </tr>
+                    <tr class="table-profile__tr">
+                        <td class="tr-profile__td-h">Поставленные дизлайки:</td>
+                        <td class="tr-profile__td">{{profile.get_dislikes_received_no}}</td>
+                    </tr>
+                    <tr class="table-profile__tr-sm">
+                        <td class="tr-profile__td-sm">{{profile.get_dislikes_received_no}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+            <p class="table-block__text-h">Биография:</p>
+            <p class="table-block__text">{{profile.bio}}</p>
+
+        </div>
+
+    </div>
+
 </div>
 {% endblock content %}

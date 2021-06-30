@@ -4,46 +4,57 @@
 {% url 'profiles:my-invites-view' as path_to_my_invites %}
 {% url 'profiles:all-profiles-view' as path_to_all_profiles %}
 
-<div class="ui inverted menu">
-    <div class="ui container">
-      <a href="{{path_to_home}}" class="{% if request.path == path_to_home %}active{% endif %} item">
-          <h3>krlbook</h3>
-      </a>
-      {% if request.user.is_authenticated %}
-      <a href="{{path_to_posts}}" class="{% if request.path == path_to_posts %}active{% endif %} item">
-          Board
-      </a>
-      {% endif %}
-  
-      <div class="right menu">
-          {% if request.user.is_authenticated %}
-          <div class="item">
-              <div class="ui floating dropdown icon button teal"> Friends
-                  <i class="dropdown icon"></i>
-                  <div class="menu">
-                      <a href="{{path_to_all_profiles}}" class="{% if request.path == path_to_all_profiles %}active{% endif %} item">
-                          All Profiles
-                      </a>
-                      <a href="{{path_to_my_invites}}" class="{% if request.path == path_to_my_invites %}active{% endif %} item">
-                          Received Invites &nbsp; <div class="ui purple horizontal label">{{invites_num}}</div>
-                      </a>
-                  </div>
-               </div>
-          </div>
-          
-              <a href="{{path_to_my_profile}}" class="{% if request.path == path_to_my_profile %}active{% endif %} item">
-                  <img src={{picture.url}} class="ui avatar image">&nbsp;
-                  {{ request.user }}
-              </a>
-  
-              <a href="{% url 'account_logout' %}" class="ui item">
-                  Logout
-              </a>
-          {% else %}
-          <a href="{% url 'account_login' %}" class="ui item">
-                  Login
-              </a>
-          {% endif %}
-      </div>
-    </div>
-  </div>
+<div class="wrapper-header">
+
+    <header class="header">
+
+        <nav class="nav">
+
+            <div class="nav__left-menu left-menu">
+                <a href="{{path_to_home}}" class="left-menu__item logo item-menu {% if request.path == path_to_home %}active{% endif %}">
+                    <img class="logo__img" src="\media\logo.svg" alt="социальная сеть krlbook">
+                    <h3 class="item-menu__text logo__text">krlbook</h3>
+                    <h2 class="logo__h2">Страница профиля</h2>
+                </a>
+                {% if request.user.is_authenticated %}
+                    <a href="{{path_to_posts}}" class="left-menu__item item-menu {% if request.path == path_to_posts %}active{% endif %}">
+                        <p class="item-menu__text">Лента</p>
+                    </a>
+                {% endif %}
+            </div>
+
+            <div class="nav__right-menu right-menu">
+                {% if request.user.is_authenticated %}
+                    <div class="right-menu__dropdown-block dropdown-block ui floating dropdown icon button">
+                        <p class="dropdown-block__text">Друзья</p>
+                        <i class="dropdown-block__icon dropdown icon"></i>
+                        <div class="dropdown-block__down-blok menu">
+                            <a href="{{path_to_all_profiles}}" class="menu__link menu-link-block {% if request.path == path_to_all_profiles %}active{% endif %} item">
+                                <p class="menu-link-block__text">Все профили</p>
+                            </a>
+                            <a href="{{path_to_my_invites}}" class="menu__link menu-link-block {% if request.path == path_to_my_invites %}active{% endif %} item">
+                                <p class="menu-link-block__text">Отправленные заявки &nbsp;</p>
+                                <span class="menu-link-block__num-block">{{invites_num}}</span>
+                            </a>
+                        </div>
+                    </div>
+                
+                    <a href="{{path_to_my_profile}}" class="right-menu__user-block user-block {% if request.path == path_to_my_profile %}active{% endif %}">
+                        <img src={{picture.url}} class="user-block__img ui avatar image">
+                    </a>
+        
+                    <a href="{% url 'account_logout' %}" class="right-menu__item item-menu" >
+                        <p class="item-menu__text">Выйти</p>
+                    </a>
+                {% else %}
+                    <a href="{% url 'account_login' %}" class="right-menu__item item-menu">
+                        <p class="item-menu__text">Войти</p>
+                    </a>
+                {% endif %}
+            </div>
+
+        </nav>
+
+    </header>
+
+</div>
