@@ -141,6 +141,10 @@ button
         width: 2rem;
         margin-right: 1rem;
     }
+    &__h2
+    {
+        display: none;
+    }
 }
 
 .right-menu
@@ -398,8 +402,13 @@ button
 .info-block
 {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     margin-bottom: 1rem;
+    grid-template-columns: 1fr 1fr;
+    
+    background-color: $header__color;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    width: 100% !important;
     &__function-block
     {
         justify-self: end;
@@ -424,8 +433,11 @@ button
 
 .author-text-block
 {
+    color: white;
     &__link
     {
+        color: white;
+        font-weight: bold;
         &:hover
         {
             color: $positive__button__color__hover;
@@ -438,6 +450,9 @@ button
     &__link
     {
         margin-left: 1rem;
+        padding: 0.3rem;
+        background-color: white;
+        border-radius: 0.3rem;
         &:hover
         {
             color: $positive__button__color__hover;
@@ -462,6 +477,9 @@ button
     {
         width: 100%;
         margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+
     }
     &__text
     {
@@ -475,7 +493,9 @@ button
 {
     &__image
     {
+        align-self: center;
         width: 100%;
+        max-width: 50rem;
         border-radius: 0.5rem;
     }
 }
@@ -703,9 +723,13 @@ button
 {
     display: grid;
     grid-template-columns: 1fr;
+    justify-items: center;
     &__image
     {
         width: 100%;
+        max-width: 20rem;
+        max-height: 40rem;
+        margin-bottom: 1rem;
     }
     &__btn
     {
@@ -956,6 +980,8 @@ button
     &__image
     {
         width: 100%;
+        max-width: 5rem;
+        max-height: 10rem;
     }
     @media (max-width: 1300px) {
         grid-template-columns: 1fr 10fr;
@@ -1070,6 +1096,7 @@ button
     {
         width: 100%;
         max-width: 20rem;
+        max-height: 40rem;
     }
     &__block-stat
     {
@@ -1092,6 +1119,102 @@ button
         text-align: center;
         border-radius: 0.2rem;
     }
+}
+
+@media print {
+    .body{        
+        color: black !important;
+        font-family: 'Times New Roman', Times, serif !important;
+        background: #fff !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        padding: 2cm;
+    }
+    .right-menu, .item-menu, .form-all-prof, .info-block-all-prof__btn-wait
+    {
+        display: none;
+    }
+    .logo
+    {
+        margin-top: 1cm;
+        margin-bottom: 1cm;
+        &__img
+        {
+            display: none;
+            max-height: 300px;
+        }
+        &__text
+        {
+            font-family: 'Times New Roman', Times, serif !important;
+            color: #000;
+            font-weight: bold;
+            font-size: 28px;
+            margin-bottom: 0;
+        }
+        &__h2
+        {
+            font-family: 'Times New Roman', Times, serif !important;
+            margin: 0;
+            display: inline;
+            color: #000;
+            font-size: 25px;
+        }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .img-stat-block
+    {
+        border: 1px solid black;
+        &__heading
+        {
+            font-family: 'Times New Roman', Times, serif !important;
+        }
+    }
+
+    .post-text
+    {
+    }
+
+    .main
+    {
+        &__h3-prof-all
+        {
+            font-family: 'Times New Roman', Times, serif !important;
+    }
+
+    .detail-block
+    {
+    }
+
+    .list-posts-block
+    {
+        break-inside: avoid;
+    }
+
+    .item-block
+    {
+        font-family: 'Times New Roman', Times, serif !important;
+        font-weight: bold;
+        &__num
+        {
+            font-family: 'Times New Roman', Times, serif !important;
+            color: black;
+            font-weight: normal;
+        }
+    }
+
+    .post-text
+    {
+        border: 1px solid black;
+        &__text
+        {
+            page-break-inside: always !important;
+            font-family: 'Times New Roman', Times, serif !important;
+        }
+    }
+}
 }
 
 // ///////////////////////////////
