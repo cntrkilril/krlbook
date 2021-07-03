@@ -12,7 +12,7 @@
         <h4 class="header-block__heading">
             Редактировать профиль
         </h4>
-        <i class="header-block__icon close icon"></i>
+        <i class="header-block__icon close icon" tabindex="1"></i>
         <p class="header-block__text">Актуализируйте информацию о профиле</p>
     </div>
 
@@ -84,11 +84,10 @@
                     <tr class="table-profile__tr">
                         <td class="tr-profile__td-h">Список друзей:</td>
                         <td class="tr-profile__td">
-                            <ul>
-                                {% for friend in profile.get_friends %}
-                                <li>{{friend}}</li>
-                                {% endfor %}
-                            </ul>
+                            {% for friend in profile.get_friends %}
+                            <a class="info-block-all-prof__link" href={{friend.profile.get_absolute_url}}>{{friend}}</a>
+                            <br>
+                            {% endfor %}
                         </td>
                     </tr>
                     <tr class="table-profile__tr-sm">
