@@ -758,6 +758,9 @@ button {
   flex-direction: column;
   align-items: flex-start;
 }
+.form-modal p label {
+  display: none;
+}
 .form-modal p a {
   word-wrap: break-word;
   word-break: break-all;
@@ -781,7 +784,6 @@ button {
   border-radius: 0.2rem;
   padding: 0.2rem;
   margin-bottom: 1rem;
-  margin-left: 1rem;
   min-width: 3rem;
 }
 

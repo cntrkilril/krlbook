@@ -12,7 +12,11 @@ $(document).ready(function (){
         ;
     })
 
+
+
     $('.ui.dropdown').dropdown()
+
+
 
     let display = false
     $(".comment-box").hide(500);
