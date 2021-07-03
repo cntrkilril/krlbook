@@ -1,3 +1,13 @@
+button:focus, a:focus {
+  outline: 2px solid #6a4f84 !important;
+}
+
+input:focus, textarea:focus {
+  border: 3px solid #6a4f84 !important;
+  border-radius: 0.2rem !important;
+  outline: none;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -311,9 +321,6 @@ button {
   margin-bottom: 1rem;
   width: 100%;
 }
-.form-body__textarea:focus {
-  outline: none;
-}
 
 .info-block {
   display: grid;
@@ -551,9 +558,6 @@ button {
   margin-bottom: 1rem;
   width: 100%;
 }
-#id_body:focus {
-  outline: none;
-}
 
 .profile-block {
   background-color: white;
@@ -688,6 +692,11 @@ button {
     padding: 0.3rem;
   }
 }
+@media (max-width: 700px) {
+  .modal-profile {
+    height: 150rem;
+  }
+}
 
 .header-block__heading {
   justify-self: start;
@@ -716,10 +725,13 @@ button {
   background-color: #eeeeee;
   border-radius: 0.5rem;
   padding: 1rem;
+  width: 100%;
 }
 .image-block-profile__image {
+  min-width: none;
   width: 100%;
   max-width: 40rem;
+  max-height: 90rem;
 }
 .image-block-profile__block-form {
   background-color: white !important;
@@ -746,6 +758,10 @@ button {
   flex-direction: column;
   align-items: flex-start;
 }
+.form-modal p a {
+  word-wrap: break-word;
+  word-break: break-all;
+}
 
 #id_bio {
   border: 0.1rem solid black;
@@ -759,9 +775,6 @@ button {
   margin-bottom: 1rem;
   width: 100%;
 }
-#id_bio:focus {
-  outline: none;
-}
 
 #id_first_name, #id_last_name {
   border: 0.1rem solid black;
@@ -770,9 +783,6 @@ button {
   margin-bottom: 1rem;
   margin-left: 1rem;
   min-width: 3rem;
-}
-#id_first_name:focus, #id_last_name:focus {
-  outline: none;
 }
 
 .form-modal-btn {
@@ -828,9 +838,6 @@ button {
   border: 0;
   border-radius: 0.2rem;
   color: white;
-}
-.info-block-all-prof__btn-wait:focus {
-  outline: none;
 }
 
 .form-all-prof__btn-del, .form-all-prof__btn-add {
@@ -1054,9 +1061,6 @@ button {
   padding: 0.5rem;
   margin-bottom: 1rem;
   width: 100%;
-}
-.form-block-sign p input:focus {
-  outline: none;
 }
 
 #id_remember {

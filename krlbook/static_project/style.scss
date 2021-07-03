@@ -9,6 +9,18 @@ $negative-color: rgb(174, 78, 78);
 $error__message-back: rgb(230, 190, 190);
 $error__message-color: rgb(119, 15, 15);
 
+button:focus, a:focus
+{
+    outline: 2px solid $header__color__hover !important;
+}
+
+input:focus, textarea:focus
+{
+    border: 3px solid $header__color__hover !important;
+    border-radius: 0.2rem !important;
+    outline: none;
+}
+
 html
 {
     font-size: 62.5%;
@@ -390,10 +402,6 @@ button
         padding: 1rem;
         overflow: auto;
         resize: vertical;
-        &:focus
-        {
-            outline: none;
-        }
         margin-bottom: 1rem;
         width: 100%;
     }
@@ -672,10 +680,6 @@ button
     height: 3rem;
     overflow: auto;
     resize: vertical;
-    &:focus
-    {
-        outline: none;
-    }
     margin-bottom: 1rem;
     width: 100%;
 }
@@ -841,6 +845,9 @@ button
         width: 92%;
         padding: 0.3rem;
     }
+    @media (max-width: 700px) {
+        height: 150rem;
+    }
 }
 
 .header-block
@@ -879,10 +886,13 @@ button
     background-color: $background__color;
     border-radius: 0.5rem;
     padding: 1rem;
+    width: 100%;
     &__image
     {
+        min-width: none;
         width: 100%;
         max-width: 40rem;
+        max-height: 90rem;
     }
     &__block-form
     {
@@ -907,6 +917,11 @@ button
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        a
+        {
+            word-wrap: break-word;
+            word-break: break-all;
+        }
     }
 }
 
@@ -921,10 +936,6 @@ button
     max-height: 30rem;
     min-height: 3rem;
     min-width: 3rem;
-    &:focus
-    {
-        outline: none;
-    }
     margin-bottom: 1rem;
     width: 100%;
 
@@ -938,10 +949,6 @@ button
     margin-bottom: 1rem;
     margin-left: 1rem;
     min-width: 3rem;
-    &:focus
-    {
-        outline: none;
-    }
 }
 
 .form-modal-btn
@@ -1013,10 +1020,6 @@ button
         border: 0;
         border-radius: 0.2rem;
         color: white;
-        &:focus
-        {
-            outline: none;
-        }
     }
 }
 
@@ -1309,10 +1312,6 @@ button
             border: none;
             border-radius: 0.5rem;
             padding: 0.5rem;
-            &:focus
-            {
-                outline: none;
-            }
             margin-bottom: 1rem;
             width: 100%;
         }
