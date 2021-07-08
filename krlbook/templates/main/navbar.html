@@ -3,6 +3,7 @@
 {% url 'profiles:my-profile-view' as path_to_my_profile %}
 {% url 'profiles:my-invites-view' as path_to_my_invites %}
 {% url 'profiles:all-profiles-view' as path_to_all_profiles %}
+{% url 'profiles:all-friends-view' as path_to_all_friends %}
 
 <div class="wrapper-header">
 
@@ -29,6 +30,9 @@
                         <p class="dropdown-block__text">Друзья</p>
                         <i class="dropdown-block__icon dropdown icon"></i>
                         <div class="dropdown-block__down-blok menu">
+                            <a href="{{path_to_all_friends}}" class="menu__link menu-link-block {% if request.path == path_to_my_invites %}active{% endif %} item">
+                                <p class="menu-link-block__text">Все друзья</p>
+                            </a>
                             <a href="{{path_to_all_profiles}}" class="menu__link menu-link-block {% if request.path == path_to_all_profiles %}active{% endif %} item">
                                 <p class="menu-link-block__text">Все профили</p>
                             </a>

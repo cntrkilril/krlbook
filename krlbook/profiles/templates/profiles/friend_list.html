@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Друзья
+{% endblock title %}
+
+{% block content %}
+
+        {% if request.user.profile.get_friends_no != 0 %}
+            <div class="main__all-prof-block all-prof-block">
+                {% for obj in object_list %}
+                    {% if request.user in obj.friends.all %}
+                        <div class="all-prof-block__item-block-all-prof item-block-all-prof">
+
+                            <img class="item-block-all-prof__image" src={{obj.avatar.url}}>
+
+                            <div class="item-block-all-prof__info-block-all-prof info-block-all-prof">
+                                <a class="info-block-all-prof__link" href={{obj.get_absolute_url}}>{{obj.user}}</a>
+                                <p class="info-block-all-prof__text">{{obj.bio}}</p>
+                                    <form class="info-block-all-prof__form-all-prof form-all-prof" action="{% url 'profiles:remove-friend' %}" method="POST">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="profile_pk" value={{obj.pk}}>
+                                        <button type="submit" class="form-all-prof__btn-del"><i class="minus square icon"></i>Удалить</button>
+                                    </form>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <h3 class="main__h3-prof-all">Нет друзей</h3>
+        {% endif %}
+
+
+{% endblock content %}

@@ -759,7 +759,8 @@ button {
   align-items: flex-start;
 }
 .form-modal p label {
-  display: none;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 .form-modal p a {
   word-wrap: break-word;
